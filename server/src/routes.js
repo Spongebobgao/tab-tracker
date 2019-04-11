@@ -20,7 +20,7 @@ module.exports = (app) => {
   app.get('/songs/:songId',
     SongsController.show
   )
-  app.get('/songs/:songId',
+  app.put('/songs/:songId',
     SongsController.put
   )
 }

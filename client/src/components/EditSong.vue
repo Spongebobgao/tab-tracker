@@ -90,7 +90,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 export default {
   data () {
@@ -111,6 +110,7 @@ export default {
   },
   methods: {
     async save () {
+      console.log('save')
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
@@ -123,7 +123,7 @@ export default {
       try {
         await SongsService.put(this.song)
         this.$router.push({
-          name: 'song',
+          name: 'songs',
           params: {
             songId: songId
           }
@@ -140,9 +140,6 @@ export default {
     } catch (err) {
       console.log(err)
     }
-  },
-  components: {
-    Panel
   }
 }
 
